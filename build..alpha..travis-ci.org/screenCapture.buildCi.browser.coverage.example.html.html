@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <title>Code coverage report for node-npmtest-nock/nock/lib/common.js</title>
     <meta charset="utf-8">
     <style>
@@ -210,11 +208,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-nock/nock/lib/</a> &#187; common.js</div>
+    <div class="path"><a href="../../../index.html">All files</a> » <a href="index.html">node-npmtest-nock/nock/lib/</a> » common.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tr><td class="line-count">1
+<tbody><tr><td class="line-count">1
 2
 3
 4
@@ -985,25 +983,25 @@ var debug = require('debug')('nock.common');
  * @param  {Object} options - a parsed options object of the request
  */
 var normalizeRequestOptions = function(options) {
-  options.proto = options.proto || (<span class="branch-1 cbranch-no" title="branch not covered" >options._https_ ? 'https': 'http')</span>;
-  options.port = options.port || (<span class="branch-1 cbranch-no" title="branch not covered" >(options.proto === 'http') ? 80 : 443)</span>;
+  options.proto = options.proto || (<span class="branch-1 cbranch-no" title="branch not covered">options._https_ ? 'https': 'http')</span>;
+  options.port = options.port || (<span class="branch-1 cbranch-no" title="branch not covered">(options.proto === 'http') ? 80 : 443)</span>;
   if (options.host) {
     debug('options.host:', options.host);
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (! options.hostname) {
-<span class="cstat-no" title="statement not covered" >      if (options.host.split(':').length == 2) {</span>
-<span class="cstat-no" title="statement not covered" >        options.hostname = options.host.split(':')[0];</span>
+    <span class="missing-if-branch" title="if path not taken">I</span>if (! options.hostname) {
+<span class="cstat-no" title="statement not covered">      if (options.host.split(':').length == 2) {</span>
+<span class="cstat-no" title="statement not covered">        options.hostname = options.host.split(':')[0];</span>
       } else {
-<span class="cstat-no" title="statement not covered" >        options.hostname = options.host;</span>
+<span class="cstat-no" title="statement not covered">        options.hostname = options.host;</span>
       }
     }
   }
   debug('options.hostname in the end: %j', options.hostname);
-  options.host = (options.hostname || <span class="branch-1 cbranch-no" title="branch not covered" >'localhost')</span> + ':' + options.port;
+  options.host = (options.hostname || <span class="branch-1 cbranch-no" title="branch not covered">'localhost')</span> + ':' + options.port;
   debug('options.host in the end: %j', options.host);
 &nbsp;
   /// lowercase host names
   ['hostname', 'host'].forEach(function(attr) {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (options[attr]) {
+    <span class="missing-if-branch" title="else path not taken">E</span>if (options[attr]) {
       options[attr] = options[attr].toLowerCase();
     }
   });
@@ -1017,32 +1015,32 @@ var normalizeRequestOptions = function(options) {
  *
  * @param  {Object} buffer - a Buffer object
  */
-var isBinaryBuffer = <span class="fstat-no" title="function not covered" >function(buffer) {</span>
+var isBinaryBuffer = <span class="fstat-no" title="function not covered">function(buffer) {</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if(!Buffer.isBuffer(buffer)) {</span>
-<span class="cstat-no" title="statement not covered" >    return false;</span>
+<span class="cstat-no" title="statement not covered">  if(!Buffer.isBuffer(buffer)) {</span>
+<span class="cstat-no" title="statement not covered">    return false;</span>
   }
 &nbsp;
   //  Test if the buffer can be reconstructed verbatim from its utf8 encoding.
-<span class="cstat-no" title="statement not covered" >  var utfEncodedBuffer = buffer.toString('utf8');</span>
-<span class="cstat-no" title="statement not covered" >  var reconstructedBuffer = new Buffer(utfEncodedBuffer, 'utf8');</span>
-<span class="cstat-no" title="statement not covered" >  var compareBuffers = <span class="fstat-no" title="function not covered" >function(lhs, rhs) {</span></span>
-<span class="cstat-no" title="statement not covered" >    if(lhs.length !== rhs.length) {</span>
-<span class="cstat-no" title="statement not covered" >      return false;</span>
+<span class="cstat-no" title="statement not covered">  var utfEncodedBuffer = buffer.toString('utf8');</span>
+<span class="cstat-no" title="statement not covered">  var reconstructedBuffer = new Buffer(utfEncodedBuffer, 'utf8');</span>
+<span class="cstat-no" title="statement not covered">  var compareBuffers = <span class="fstat-no" title="function not covered">function(lhs, rhs) {</span></span>
+<span class="cstat-no" title="statement not covered">    if(lhs.length !== rhs.length) {</span>
+<span class="cstat-no" title="statement not covered">      return false;</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    for(var i = 0; i &lt; lhs.length; ++i) {</span>
-<span class="cstat-no" title="statement not covered" >      if(lhs[i] !== rhs[i]) {</span>
-<span class="cstat-no" title="statement not covered" >        return false;</span>
+<span class="cstat-no" title="statement not covered">    for(var i = 0; i &lt; lhs.length; ++i) {</span>
+<span class="cstat-no" title="statement not covered">      if(lhs[i] !== rhs[i]) {</span>
+<span class="cstat-no" title="statement not covered">        return false;</span>
       }
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return true;</span>
+<span class="cstat-no" title="statement not covered">    return true;</span>
   };
 &nbsp;
   //  If the buffers are *not* equal then this is a "binary buffer"
   //  meaning that it cannot be faitfully represented in utf8.
-<span class="cstat-no" title="statement not covered" >  return !compareBuffers(buffer, reconstructedBuffer);</span>
+<span class="cstat-no" title="statement not covered">  return !compareBuffers(buffer, reconstructedBuffer);</span>
 &nbsp;
 };
 &nbsp;
@@ -1052,22 +1050,22 @@ var isBinaryBuffer = <span class="fstat-no" title="function not covered" >functi
  *
  * @param  {Array} chunks - an array of Buffer objects or strings
  */
-var mergeChunks = <span class="fstat-no" title="function not covered" >function(chunks) {</span>
+var mergeChunks = <span class="fstat-no" title="function not covered">function(chunks) {</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if(_.isEmpty(chunks)) {</span>
-<span class="cstat-no" title="statement not covered" >    return new Buffer(0);</span>
+<span class="cstat-no" title="statement not covered">  if(_.isEmpty(chunks)) {</span>
+<span class="cstat-no" title="statement not covered">    return new Buffer(0);</span>
   }
 &nbsp;
   //  We assume that all chunks are Buffer objects if the first is buffer object.
-<span class="cstat-no" title="statement not covered" >  var areBuffers = Buffer.isBuffer(_.first(chunks));</span>
+<span class="cstat-no" title="statement not covered">  var areBuffers = Buffer.isBuffer(_.first(chunks));</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if(!areBuffers) {</span>
+<span class="cstat-no" title="statement not covered">  if(!areBuffers) {</span>
     //  When the chunks are not buffers we assume that they are strings.
-<span class="cstat-no" title="statement not covered" >    return chunks.join('');</span>
+<span class="cstat-no" title="statement not covered">    return chunks.join('');</span>
   }
 &nbsp;
   //  Merge all the buffers into a single Buffer object.
-<span class="cstat-no" title="statement not covered" >  return Buffer.concat(chunks);</span>
+<span class="cstat-no" title="statement not covered">  return Buffer.concat(chunks);</span>
 &nbsp;
 };
 &nbsp;
@@ -1098,8 +1096,8 @@ var overrideRequests = function(newRequest) {
         }[moduleName],
         overriddenRequest = module.request;
 &nbsp;
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(requestOverride[moduleName]) {
-<span class="cstat-no" title="statement not covered" >      throw new Error('Module\'s request already overridden for ' + moduleName + ' protocol.');</span>
+    <span class="missing-if-branch" title="if path not taken">I</span>if(requestOverride[moduleName]) {
+<span class="cstat-no" title="statement not covered">      throw new Error('Module\'s request already overridden for ' + moduleName + ' protocol.');</span>
     }
 &nbsp;
     //  Store the properties of the overridden request so that it can be restored later on.
@@ -1129,7 +1127,7 @@ var restoreOverriddenRequests = function() {
     debug('- restoring request for', proto);
 &nbsp;
     var override = requestOverride[proto];
-    <span class="missing-if-branch" title="else path not taken" >E</span>if(override) {
+    <span class="missing-if-branch" title="else path not taken">E</span>if(override) {
       override.module.request = override.request;
       debug('- restored request for', proto);
     }
@@ -1149,97 +1147,97 @@ var restoreOverriddenRequests = function() {
  * @param  {string|object} body
  * @return {string}
  */
-<span class="fstat-no" title="function not covered" >function stringifyRequest(options, body) {</span>
-<span class="cstat-no" title="statement not covered" >  var method = options.method || 'GET';</span>
+<span class="fstat-no" title="function not covered">function stringifyRequest(options, body) {</span>
+<span class="cstat-no" title="statement not covered">  var method = options.method || 'GET';</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var port = options.port;</span>
-<span class="cstat-no" title="statement not covered" >  if (! port) <span class="cstat-no" title="statement not covered" >port = (options.proto == 'https' ? '443' : '80');</span></span>
+<span class="cstat-no" title="statement not covered">  var port = options.port;</span>
+<span class="cstat-no" title="statement not covered">  if (! port) <span class="cstat-no" title="statement not covered">port = (options.proto == 'https' ? '443' : '80');</span></span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (options.proto == 'https' &amp;&amp; port == '443' ||</span>
+<span class="cstat-no" title="statement not covered">  if (options.proto == 'https' &amp;&amp; port == '443' ||</span>
       options.proto == 'http' &amp;&amp; port == '80') {
-<span class="cstat-no" title="statement not covered" >    port = '';</span>
+<span class="cstat-no" title="statement not covered">    port = '';</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (port) <span class="cstat-no" title="statement not covered" >port = ':' + port;</span></span>
+<span class="cstat-no" title="statement not covered">  if (port) <span class="cstat-no" title="statement not covered">port = ':' + port;</span></span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var log = {</span>
+<span class="cstat-no" title="statement not covered">  var log = {</span>
     method: method,
     url: options.proto + '://' + options.hostname + port + options.path,
     headers: options.headers
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (body) {</span>
-<span class="cstat-no" title="statement not covered" >    log.body = body;</span>
+<span class="cstat-no" title="statement not covered">  if (body) {</span>
+<span class="cstat-no" title="statement not covered">    log.body = body;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return JSON.stringify(log, null, 2);</span>
+<span class="cstat-no" title="statement not covered">  return JSON.stringify(log, null, 2);</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function isContentEncoded(headers) {</span>
-<span class="cstat-no" title="statement not covered" >  var contentEncoding = _.get(headers, 'content-encoding');</span>
-<span class="cstat-no" title="statement not covered" >  return _.isString(contentEncoding) &amp;&amp; contentEncoding !== '';</span>
+<span class="fstat-no" title="function not covered">function isContentEncoded(headers) {</span>
+<span class="cstat-no" title="statement not covered">  var contentEncoding = _.get(headers, 'content-encoding');</span>
+<span class="cstat-no" title="statement not covered">  return _.isString(contentEncoding) &amp;&amp; contentEncoding !== '';</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function contentEncoding(headers, encoder) {</span>
-<span class="cstat-no" title="statement not covered" >  var contentEncoding = _.get(headers, 'content-encoding');</span>
-<span class="cstat-no" title="statement not covered" >  return contentEncoding === encoder;</span>
+<span class="fstat-no" title="function not covered">function contentEncoding(headers, encoder) {</span>
+<span class="cstat-no" title="statement not covered">  var contentEncoding = _.get(headers, 'content-encoding');</span>
+<span class="cstat-no" title="statement not covered">  return contentEncoding === encoder;</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function isJSONContent(headers) {</span>
-<span class="cstat-no" title="statement not covered" >  var contentType = _.get(headers, 'content-type');</span>
-<span class="cstat-no" title="statement not covered" >  if (Array.isArray(contentType)) {</span>
-<span class="cstat-no" title="statement not covered" >    contentType = contentType[0];</span>
+<span class="fstat-no" title="function not covered">function isJSONContent(headers) {</span>
+<span class="cstat-no" title="statement not covered">  var contentType = _.get(headers, 'content-type');</span>
+<span class="cstat-no" title="statement not covered">  if (Array.isArray(contentType)) {</span>
+<span class="cstat-no" title="statement not covered">    contentType = contentType[0];</span>
   }
-<span class="cstat-no" title="statement not covered" >  contentType = (contentType || '').toLocaleLowerCase();</span>
+<span class="cstat-no" title="statement not covered">  contentType = (contentType || '').toLocaleLowerCase();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return contentType === 'application/json';</span>
+<span class="cstat-no" title="statement not covered">  return contentType === 'application/json';</span>
 }
 &nbsp;
-var headersFieldNamesToLowerCase = <span class="fstat-no" title="function not covered" >function(headers) {</span>
-<span class="cstat-no" title="statement not covered" >  if(!_.isObject(headers)) {</span>
-<span class="cstat-no" title="statement not covered" >    return headers;</span>
+var headersFieldNamesToLowerCase = <span class="fstat-no" title="function not covered">function(headers) {</span>
+<span class="cstat-no" title="statement not covered">  if(!_.isObject(headers)) {</span>
+<span class="cstat-no" title="statement not covered">    return headers;</span>
   }
 &nbsp;
   //  For each key in the headers, delete its value and reinsert it with lower-case key.
   //  Keys represent headers field names.
-<span class="cstat-no" title="statement not covered" >  var lowerCaseHeaders = {};</span>
-<span class="cstat-no" title="statement not covered" >  _.forOwn(headers, <span class="fstat-no" title="function not covered" >function(fieldVal, fieldName) {</span></span>
-<span class="cstat-no" title="statement not covered" >    var lowerCaseFieldName = fieldName.toLowerCase();</span>
-<span class="cstat-no" title="statement not covered" >    if(!_.isUndefined(lowerCaseHeaders[lowerCaseFieldName])) {</span>
-<span class="cstat-no" title="statement not covered" >      throw new Error('Failed to convert header keys to lower case due to field name conflict: ' + lowerCaseFieldName);</span>
+<span class="cstat-no" title="statement not covered">  var lowerCaseHeaders = {};</span>
+<span class="cstat-no" title="statement not covered">  _.forOwn(headers, <span class="fstat-no" title="function not covered">function(fieldVal, fieldName) {</span></span>
+<span class="cstat-no" title="statement not covered">    var lowerCaseFieldName = fieldName.toLowerCase();</span>
+<span class="cstat-no" title="statement not covered">    if(!_.isUndefined(lowerCaseHeaders[lowerCaseFieldName])) {</span>
+<span class="cstat-no" title="statement not covered">      throw new Error('Failed to convert header keys to lower case due to field name conflict: ' + lowerCaseFieldName);</span>
     }
-<span class="cstat-no" title="statement not covered" >    lowerCaseHeaders[lowerCaseFieldName] = fieldVal;</span>
+<span class="cstat-no" title="statement not covered">    lowerCaseHeaders[lowerCaseFieldName] = fieldVal;</span>
   });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return lowerCaseHeaders;</span>
+<span class="cstat-no" title="statement not covered">  return lowerCaseHeaders;</span>
 };
 &nbsp;
-var headersFieldsArrayToLowerCase = <span class="fstat-no" title="function not covered" >function (headers) {</span>
-<span class="cstat-no" title="statement not covered" >  return _.uniq(_.map(headers, <span class="fstat-no" title="function not covered" >function (fieldName) {</span></span>
-<span class="cstat-no" title="statement not covered" >    return fieldName.toLowerCase();</span>
+var headersFieldsArrayToLowerCase = <span class="fstat-no" title="function not covered">function (headers) {</span>
+<span class="cstat-no" title="statement not covered">  return _.uniq(_.map(headers, <span class="fstat-no" title="function not covered">function (fieldName) {</span></span>
+<span class="cstat-no" title="statement not covered">    return fieldName.toLowerCase();</span>
   }));
 };
 &nbsp;
-var headersArrayToObject = <span class="fstat-no" title="function not covered" >function (rawHeaders) {</span>
-<span class="cstat-no" title="statement not covered" >  if(!_.isArray(rawHeaders)) {</span>
-<span class="cstat-no" title="statement not covered" >    return rawHeaders;</span>
+var headersArrayToObject = <span class="fstat-no" title="function not covered">function (rawHeaders) {</span>
+<span class="cstat-no" title="statement not covered">  if(!_.isArray(rawHeaders)) {</span>
+<span class="cstat-no" title="statement not covered">    return rawHeaders;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var headers = {};</span>
+<span class="cstat-no" title="statement not covered">  var headers = {};</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  for (var i=0, len=rawHeaders.length; i&lt;len; i=i+2) {</span>
-<span class="cstat-no" title="statement not covered" >    var key = rawHeaders[i];</span>
-<span class="cstat-no" title="statement not covered" >    var value = rawHeaders[i+1];</span>
+<span class="cstat-no" title="statement not covered">  for (var i=0, len=rawHeaders.length; i&lt;len; i=i+2) {</span>
+<span class="cstat-no" title="statement not covered">    var key = rawHeaders[i];</span>
+<span class="cstat-no" title="statement not covered">    var value = rawHeaders[i+1];</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (headers[key]) {</span>
-<span class="cstat-no" title="statement not covered" >      headers[key] = _.isArray(headers[key]) ? headers[key] : [headers[key]];</span>
-<span class="cstat-no" title="statement not covered" >      headers[key].push(value);</span>
+<span class="cstat-no" title="statement not covered">    if (headers[key]) {</span>
+<span class="cstat-no" title="statement not covered">      headers[key] = _.isArray(headers[key]) ? headers[key] : [headers[key]];</span>
+<span class="cstat-no" title="statement not covered">      headers[key].push(value);</span>
     } else {
-<span class="cstat-no" title="statement not covered" >      headers[key] = value;</span>
+<span class="cstat-no" title="statement not covered">      headers[key] = value;</span>
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return headers;</span>
+<span class="cstat-no" title="statement not covered">  return headers;</span>
 };
 &nbsp;
 /**
@@ -1249,19 +1247,19 @@ var headersArrayToObject = <span class="fstat-no" title="function not covered" >
  * @headers   {Object} headers - object of header field names and values
  * @fieldName {String} field name - string with the case-insensitive field name
  */
-var deleteHeadersField = <span class="fstat-no" title="function not covered" >function(headers, fieldNameToDelete) {</span>
+var deleteHeadersField = <span class="fstat-no" title="function not covered">function(headers, fieldNameToDelete) {</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if(!_.isObject(headers) || !_.isString(fieldNameToDelete)) {</span>
-<span class="cstat-no" title="statement not covered" >    return;</span>
+<span class="cstat-no" title="statement not covered">  if(!_.isObject(headers) || !_.isString(fieldNameToDelete)) {</span>
+<span class="cstat-no" title="statement not covered">    return;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var lowerCaseFieldNameToDelete = fieldNameToDelete.toLowerCase();</span>
+<span class="cstat-no" title="statement not covered">  var lowerCaseFieldNameToDelete = fieldNameToDelete.toLowerCase();</span>
 &nbsp;
   //  Search through the headers and delete all values whose field name matches the given field name.
-<span class="cstat-no" title="statement not covered" >  _(headers).keys().each(<span class="fstat-no" title="function not covered" >function(fieldName) {</span></span>
-<span class="cstat-no" title="statement not covered" >    var lowerCaseFieldName = fieldName.toLowerCase();</span>
-<span class="cstat-no" title="statement not covered" >    if(lowerCaseFieldName === lowerCaseFieldNameToDelete) {</span>
-<span class="cstat-no" title="statement not covered" >      delete headers[fieldName];</span>
+<span class="cstat-no" title="statement not covered">  _(headers).keys().each(<span class="fstat-no" title="function not covered">function(fieldName) {</span></span>
+<span class="cstat-no" title="statement not covered">    var lowerCaseFieldName = fieldName.toLowerCase();</span>
+<span class="cstat-no" title="statement not covered">    if(lowerCaseFieldName === lowerCaseFieldNameToDelete) {</span>
+<span class="cstat-no" title="statement not covered">      delete headers[fieldName];</span>
       //  We don't stop here but continue in order to remove *all* matching field names
       //  (even though if seen regorously there shouldn't be any)
     }
@@ -1269,67 +1267,67 @@ var deleteHeadersField = <span class="fstat-no" title="function not covered" >fu
 &nbsp;
 };
 &nbsp;
-<span class="fstat-no" title="function not covered" >function percentDecode (str) {</span>
-<span class="cstat-no" title="statement not covered" >  try {</span>
-<span class="cstat-no" title="statement not covered" >    return decodeURIComponent(str.replace(/\+/g, ' '));</span>
+<span class="fstat-no" title="function not covered">function percentDecode (str) {</span>
+<span class="cstat-no" title="statement not covered">  try {</span>
+<span class="cstat-no" title="statement not covered">    return decodeURIComponent(str.replace(/\+/g, ' '));</span>
   } catch (e) {
-<span class="cstat-no" title="statement not covered" >    return str;</span>
+<span class="cstat-no" title="statement not covered">    return str;</span>
   }
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function percentEncode(str) {</span>
-<span class="cstat-no" title="statement not covered" >  return encodeURIComponent(str).replace(/[!'()*]/g, <span class="fstat-no" title="function not covered" >function(c) {</span></span>
-<span class="cstat-no" title="statement not covered" >    return '%' + c.charCodeAt(0).toString(16).toUpperCase();</span>
+<span class="fstat-no" title="function not covered">function percentEncode(str) {</span>
+<span class="cstat-no" title="statement not covered">  return encodeURIComponent(str).replace(/[!'()*]/g, <span class="fstat-no" title="function not covered">function(c) {</span></span>
+<span class="cstat-no" title="statement not covered">    return '%' + c.charCodeAt(0).toString(16).toUpperCase();</span>
   });
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function matchStringOrRegexp(target, pattern) {</span>
-<span class="cstat-no" title="statement not covered" >  var str = target &amp;&amp; target.toString ? target.toString() : target;</span>
+<span class="fstat-no" title="function not covered">function matchStringOrRegexp(target, pattern) {</span>
+<span class="cstat-no" title="statement not covered">  var str = target &amp;&amp; target.toString ? target.toString() : target;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return pattern instanceof RegExp  ? str.match(pattern) : str === pattern;</span>
+<span class="cstat-no" title="statement not covered">  return pattern instanceof RegExp  ? str.match(pattern) : str === pattern;</span>
 }
 &nbsp;
 // return [newKey, newValue]
-<span class="fstat-no" title="function not covered" >function formatQueryValue(key, value, options) {</span>
-<span class="cstat-no" title="statement not covered" >  switch (true) {</span>
+<span class="fstat-no" title="function not covered">function formatQueryValue(key, value, options) {</span>
+<span class="cstat-no" title="statement not covered">  switch (true) {</span>
     case _.isNumber(value): // fall-though
     case _.isBoolean(value):
-<span class="cstat-no" title="statement not covered" >      value = value.toString();</span>
-<span class="cstat-no" title="statement not covered" >      break;</span>
+<span class="cstat-no" title="statement not covered">      value = value.toString();</span>
+<span class="cstat-no" title="statement not covered">      break;</span>
     case _.isUndefined(value): // fall-though
     case _.isNull(value):
-<span class="cstat-no" title="statement not covered" >      value = '';</span>
-<span class="cstat-no" title="statement not covered" >      break;</span>
+<span class="cstat-no" title="statement not covered">      value = '';</span>
+<span class="cstat-no" title="statement not covered">      break;</span>
     case _.isString(value):
-<span class="cstat-no" title="statement not covered" >      if(options.encodedQueryParams) {</span>
-<span class="cstat-no" title="statement not covered" >        value = percentDecode(value);</span>
+<span class="cstat-no" title="statement not covered">      if(options.encodedQueryParams) {</span>
+<span class="cstat-no" title="statement not covered">        value = percentDecode(value);</span>
       }
-<span class="cstat-no" title="statement not covered" >      break;</span>
+<span class="cstat-no" title="statement not covered">      break;</span>
     case (value instanceof RegExp):
-<span class="cstat-no" title="statement not covered" >      break;</span>
+<span class="cstat-no" title="statement not covered">      break;</span>
     case _.isArray(value):
-<span class="cstat-no" title="statement not covered" >      var tmpArray = new Array(value.length);</span>
-<span class="cstat-no" title="statement not covered" >      for (var i = 0; i &lt; value.length; ++i) {</span>
-<span class="cstat-no" title="statement not covered" >        tmpArray[i] = formatQueryValue(i, value[i], options)[1];</span>
+<span class="cstat-no" title="statement not covered">      var tmpArray = new Array(value.length);</span>
+<span class="cstat-no" title="statement not covered">      for (var i = 0; i &lt; value.length; ++i) {</span>
+<span class="cstat-no" title="statement not covered">        tmpArray[i] = formatQueryValue(i, value[i], options)[1];</span>
       }
-<span class="cstat-no" title="statement not covered" >      value = tmpArray;</span>
-<span class="cstat-no" title="statement not covered" >      break;</span>
+<span class="cstat-no" title="statement not covered">      value = tmpArray;</span>
+<span class="cstat-no" title="statement not covered">      break;</span>
     case _.isObject(value):
-<span class="cstat-no" title="statement not covered" >      var tmpObj = {};</span>
-<span class="cstat-no" title="statement not covered" >      _.forOwn(value, <span class="fstat-no" title="function not covered" >function(subVal, subKey){</span></span>
-<span class="cstat-no" title="statement not covered" >        var subPair = formatQueryValue(subKey, subVal, options);</span>
-<span class="cstat-no" title="statement not covered" >        tmpObj[subPair[0]] = subPair[1];</span>
+<span class="cstat-no" title="statement not covered">      var tmpObj = {};</span>
+<span class="cstat-no" title="statement not covered">      _.forOwn(value, <span class="fstat-no" title="function not covered">function(subVal, subKey){</span></span>
+<span class="cstat-no" title="statement not covered">        var subPair = formatQueryValue(subKey, subVal, options);</span>
+<span class="cstat-no" title="statement not covered">        tmpObj[subPair[0]] = subPair[1];</span>
       });
-<span class="cstat-no" title="statement not covered" >      value = tmpObj;</span>
-<span class="cstat-no" title="statement not covered" >      break;</span>
+<span class="cstat-no" title="statement not covered">      value = tmpObj;</span>
+<span class="cstat-no" title="statement not covered">      break;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (options.encodedQueryParams) <span class="cstat-no" title="statement not covered" >key = percentDecode(key);</span></span>
-<span class="cstat-no" title="statement not covered" >  return [key, value];</span>
+<span class="cstat-no" title="statement not covered">  if (options.encodedQueryParams) <span class="cstat-no" title="statement not covered">key = percentDecode(key);</span></span>
+<span class="cstat-no" title="statement not covered">  return [key, value];</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function isStream(obj) {</span>
-<span class="cstat-no" title="statement not covered" >  return obj &amp;&amp;</span>
+<span class="fstat-no" title="function not covered">function isStream(obj) {</span>
+<span class="cstat-no" title="statement not covered">  return obj &amp;&amp;</span>
       (typeof a !== 'string') &amp;&amp;
       (! Buffer.isBuffer(obj)) &amp;&amp;
       _.isFunction(obj.setEncoding);
@@ -1355,10 +1353,11 @@ exports.formatQueryValue = formatQueryValue;
 exports.isStream = isStream;
 &nbsp;
 &nbsp;</pre></td></tr>
-</table></pre>
+</tbody></table></pre>
 </div>
 <div class="footer">
     <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Sat Apr 15 2017 22:28:10 GMT+0000 (UTC)</div>
 </div>
-</body>
-</html>
+
+
+</body></html>
