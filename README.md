@@ -1,6 +1,6 @@
 # npmtest-nock
 
-#### test coverage for  [nock (v9.0.13)](https://github.com/node-nock/nock#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-nock.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-nock) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-nock.svg)](https://travis-ci.org/npmtest/node-npmtest-nock)
+#### basic test coverage for  [nock (v9.0.13)](https://github.com/node-nock/nock#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-nock.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-nock) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-nock.svg)](https://travis-ci.org/npmtest/node-npmtest-nock)
 
 #### HTTP Server mocking for Node.js
 
